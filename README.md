@@ -7,10 +7,10 @@ Created during Week 13 of Gerogia Tech Coding Bootcamp. The goal was to create a
 
 ## Screen Shots
 
-![Screen shot]()
+![Screen shot](https://raw.githubusercontent.com/skendall74/friendfinder/master/public/assets/images/buddy_1.png)
 Index Page
 
-![Screen shot 2]()
+![Screen shot 2](https://raw.githubusercontent.com/skendall74/friendfinder/master/public/assets/images/buddy_2.png)
 Survey
 
 ## Technologies used
