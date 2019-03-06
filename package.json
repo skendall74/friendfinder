@@ -1,0 +1,29 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "A friend finder app using Node and Express. A survey for finding friends like a dating app.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skendall74/friendfinder.git"
+  },
+  "keywords": [
+    "friend",
+    "local"
+  ],
+  "author": "Shannon Kendall",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/skendall74/friendfinder/issues"
+  },
+  "homepage": "https://github.com/skendall74/friendfinder#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "path": "^0.12.7"
+  }
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!--Let browser know website is optimized for mobile-->
+  <base href="/" />
+  <link href="./assets/css/reset.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- materialize icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" />
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <!-- Custom CSS Font  -->
+  <link href="./assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link rel="icon" href="https://cu.esn.sk/sites/default/files/imce/buddy.jpg" />
+  <title>Buddy Locator</title>
+
+</head>
+
+<body>
+
+  <!-- Navbar Structure -->
+  <section class="navbar-fixed">
+    <nav>
+      <div class="`">
+        <a href="/" class="brand-logo">Buddy Locator</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/survey">Survey</a></li>
+          <button type="submit" data-target="modal1"
+            class="waves-effect waves-light btn modal-trigger cyan lighten-1 submitBtn">Submit</button>
+      </div>
+      </ul>
+      </div>
+    </nav>
+  </section>
+
+  <!-- navbar background -->
+  <div id="nav-bg"></div>
+
+  <!-- SideNav  -->
+  <ul class="sidenav" id="mobile-demo">
+    <h4>Start Survey</h4>
+    <li><a href="/">Home</a></li>
+    <li><a href="/survey">Survey</a></li>
+    <button type="submit" data-target="modal1"
+      class="waves-effect waves-light btn modal-trigger cyan lighten-1 submitBtn">Submit</button>
+  </ul>
+
+  <div class='container'>
+    <div class='card-panel #ffb74d orange lighten-2 col s12 center-align'>
+      <h4><strong>Survey Questions</strong></h4>
+      <div class='card-panel left-align white'>
+        <h5><strong>About You</strong></h5>
+        <input id="name" type="text" class="validate" required="" aria-required="true">
+        <label class='active' for="name">Name (required)</label>
+        <p>Please pick an image:</p>
+        </br>
+        <p><input type="file" name="" size="40" id="file"></p>
+        <h5><strong>Question 1 -</strong></h5>
+        <p>I am outgoing and sociable. Not introverted.</p>
+        <p class="range-field">
+          <input type="range" id="q1" min="0" max="10" />
+        </p>
+        <h5><strong>Question 2</strong></h5>
+        <p>I am judgemental to friends.</p>
+        <p class="range-field">
+          <input type="range" id="q2" min="0" max="10" />
+        </p>
+        <h5><strong>Question 3</strong></h5>
+        <p>I am highly disciplined and resilient.</p>
+        <p class="range-field">
+          <input type="range" id="q3" min="0" max="10" />
+        </p>
+        <h5><strong>Question 4</strong></h5>
+        <p>I am anxious or easily upset.</p>
+        <p class="range-field">
+          <input type="range" id="q4" min="0" max="10" />
+        </p>
+        <h5><strong>Question 5</strong></h5>
+        <p>I am open to new challenges.</p>
+        <p class="range-field">
+          <input type="range" id="q5" min="0" max="10" />
+        </p>
+        <h5><strong>Question 6</strong></h5>
+        <p>I am reserved, quiet</p>
+        <p class="range-field">
+          <input type="range" id="q6" min="0" max="10" />
+        </p>
+        <h5><strong>Question 7</strong></h5>
+        <p>I see myself as mostly sympathetic.</p>
+        <p class="range-field">
+          <input type="range" id="q7" min="0" max="10" />
+        </p>
+        <h5><strong>Question 8</strong></h5>
+        <p>I am disorganized.</p>
+        <p class="range-field">
+          <input type="range" id="q8" min="0" max="10" />
+        </p>
+        <h5><strong>Question 9</strong></h5>
+        <p>I am calm, emotionally stable.</p>
+        <p class="range-field">
+          <input type="range" id="q9" min="0" max="10" />
+        </p>
+        <h5><strong>Question 10</strong></h5>
+        <p>I am practical, conventional.</p>
+        <p class="range-field">
+          <input type="range" id="q10" min="0" max="10" />
+        </p>
+        <br>
+        <!-- Materialize Modal Trigger/Submit Button -->
+        <button type="submit" data-target="modal1"
+          class="waves-effect waves-light btn modal-trigger cyan lighten-1 submitBtn">Submit</button>
+      </div>
+    </div>
+    <div class='col s4'>
+      <p><a href='/api/friends' target='_blank'>Survey</a> | <a href='https://github.com/skendall74/friendfinder'
+          target='_blank'>GitHub Repo</a></p>
+    </div>
+
+    <!-- Materialize Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h3>Meet Your New BFF</h3>
+        <h5 id="matchName"></h5>
+        <img id="matchImg" src="" alt="No Image" width=250px>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Done</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Grabs information and sends it to server -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Modal Ready for Styles 
+      $('select').formSelect();
+      // Modal Ready to go
+      $('.modal').modal();
+      // Import Animate on Scroll JS
+      $('.sidenav').sidenav();
+    });
+
+    function validateForm() {
+      var isValid = true;
+      $('.validate').each(function () {
+        if ($(this).val() === '') {
+          isValid = false;
+        }
+      });
+      $('.browser-default').each(function () {
+        if ($(this).val() === "") {
+          isValid = false;
+        }
+      });
+      return isValid;
+    }
+
+    $(".submitBtn[required]").css({ display: "block", height: 0, padding: 0, width: 0, position: 'absolute' });
+
+    $(".submitBtn").on("click", function () {
+      //form validation
+      var valid = validateForm()
+      //if everything is filled
+      if (valid) {
+        //creates a new friend from the values submitted
+        var newFriend = {
+          name: $('#name').val().trim(),
+          photo: $('#file').val().trim(),
+          userScores: [
+            $('#q1').val(),
+            $('#q2').val(),
+            $('#q3').val(),
+            $('#q4').val(),
+            $('#q5').val(),
+            $('#q6').val(),
+            $('#q7').val(),
+            $('#q8').val(),
+            $('#q9').val(),
+            $('#q10').val(),
+          ]
+        };
+        console.log(newFriend)
+        //AJAX posts the data to friends API.
+        $.post("/api/friends", newFriend, function (data) {
+          console.log(data);
+          //Grab the result from the AJAX post so that the best match's name and photo are displayed.
+          $("#matchName").text(data.name);
+          $("#matchImg").attr("src", data.photo);
+        });
+        $("#modal1").modal('open');
+        //clear form after submission
+        $('#name').val("");
+        $('#file').val("");
+        $('#q1').val("");
+        $('#q2').val("");
+        $('#q3').val("");
+        $('#q4').val("");
+        $('#q5').val("");
+        $('#q6').val("");
+        $('#q7').val("");
+        $('#q8').val("");
+        $('#q9').val("");
+        $('#q10').val("");
+      } else {
+        alert("Please fill out ALL fields before submitting survey!")
+      }
+      // return false;
+    });
+
+
+
+  </script>
+
+</body>
+
+</html>
